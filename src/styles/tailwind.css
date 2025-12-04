@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --color-primary: #1E3A8A; /* blue-900 - Deep navy for trust and authority */
+    --color-primary-foreground: #FFFFFF; /* white - Ensures WCAG AA contrast */
+    
+    /* Secondary Colors */
+    --color-secondary: #64748B; /* slate-500 - Sophisticated neutral contrast */
+    --color-secondary-foreground: #FFFFFF; /* white - Clear contrast for readability */
+    
+    /* Accent Colors */
+    --color-accent: #F59E0B; /* amber-500 - Warm attention-drawing accent */
+    --color-accent-foreground: #1F2937; /* gray-800 - Dark text on warm background */
+    
+    /* Background Colors */
+    --color-background: #FAFBFC; /* gray-50 - Soft off-white reducing eye strain */
+    --color-foreground: #1F2937; /* gray-800 - Rich charcoal for excellent readability */
+    
+    /* Surface Colors */
+    --color-card: #FFFFFF; /* white - Pure white for content areas */
+    --color-card-foreground: #1F2937; /* gray-800 - Primary text on cards */
+    --color-popover: #FFFFFF; /* white - Clean popover backgrounds */
+    --color-popover-foreground: #1F2937; /* gray-800 - Readable popover text */
+    
+    /* Muted Colors */
+    --color-muted: #F3F4F6; /* gray-100 - Subtle background variation */
+    --color-muted-foreground: #6B7280; /* gray-500 - Balanced gray for supporting info */
+    
+    /* Border & Input */
+    --color-border: #E5E7EB; /* gray-200 - Light gray for minimal borders */
+    --color-input: #E5E7EB; /* gray-200 - Consistent input border color */
+    --color-ring: #1E3A8A; /* blue-900 - Focus ring matching primary */
+    
+    /* Status Colors */
+    --color-success: #10B981; /* green-500 - Fresh green for positive outcomes */
+    --color-success-foreground: #FFFFFF; /* white - Clear contrast on success */
+    
+    --color-warning: #F59E0B; /* amber-500 - Consistent amber for alerts */
+    --color-warning-foreground: #1F2937; /* gray-800 - Dark text on warning */
+    
+    --color-error: #EF4444; /* red-500 - Clear red for issues */
+    --color-error-foreground: #FFFFFF; /* white - High contrast on error */
+    
+    --color-destructive: #EF4444; /* red-500 - Destructive action color */
+    --color-destructive-foreground: #FFFFFF; /* white - Clear destructive text */
+    
+    /* Radius */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Primary Colors */
+    --color-primary: #3B82F6; /* blue-500 - Brighter blue for dark mode */
+    --color-primary-foreground: #FFFFFF; /* white - Maintains contrast */
+    
+    /* Secondary Colors */
+    --color-secondary: #475569; /* slate-600 - Darker slate for dark mode */
+    --color-secondary-foreground: #F1F5F9; /* slate-100 - Light text on dark secondary */
+    
+    /* Accent Colors */
+    --color-accent: #FBBF24; /* amber-400 - Brighter amber for visibility */
+    --color-accent-foreground: #1F2937; /* gray-800 - Dark text maintained */
+    
+    /* Background Colors */
+    --color-background: #0F172A; /* slate-900 - Deep dark background */
+    --color-foreground: #F1F5F9; /* slate-100 - Light text on dark */
+    
+    /* Surface Colors */
+    --color-card: #1E293B; /* slate-800 - Elevated dark surface */
+    --color-card-foreground: #F1F5F9; /* slate-100 - Light card text */
+    --color-popover: #1E293B; /* slate-800 - Dark popover background */
+    --color-popover-foreground: #F1F5F9; /* slate-100 - Light popover text */
+    
+    /* Muted Colors */
+    --color-muted: #334155; /* slate-700 - Muted dark variation */
+    --color-muted-foreground: #94A3B8; /* slate-400 - Lighter muted text */
+    
+    /* Border & Input */
+    --color-border: #334155; /* slate-700 - Subtle dark borders */
+    --color-input: #334155; /* slate-700 - Dark input borders */
+    --color-ring: #3B82F6; /* blue-500 - Bright focus ring */
+    
+    /* Status Colors */
+    --color-success: #22C55E; /* green-500 - Vibrant success for dark mode */
+    --color-success-foreground: #FFFFFF; /* white - Clear success text */
+    
+    --color-warning: #FBBF24; /* amber-400 - Bright warning for visibility */
+    --color-warning-foreground: #1F2937; /* gray-800 - Dark warning text */
+    
+    --color-error: #F87171; /* red-400 - Softer red for dark mode */
+    --color-error-foreground: #FFFFFF; /* white - Clear error text */
+    
+    --color-destructive: #F87171; /* red-400 - Softer destructive for dark */
+    --color-destructive-foreground: #FFFFFF; /* white - Clear destructive text */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
