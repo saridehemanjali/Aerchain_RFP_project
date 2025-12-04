@@ -1,94 +1,156 @@
-# React
+# Aerchain - AI-Powered RFP Management System
 
-A modern React-based project utilizing the latest frontend technologies and tools for building responsive web applications.
+A comprehensive web application for managing Request for Proposals (RFPs) with AI-powered processing, vendor management, and intelligent proposal comparison.
 
-## 🚀 Features
+## 🎯 Features
 
-- **React 18** - React version with improved rendering and concurrent features
-- **Vite** - Lightning-fast build tool and development server
-- **Redux Toolkit** - State management with simplified Redux setup
-- **TailwindCSS** - Utility-first CSS framework with extensive customization
-- **React Router v6** - Declarative routing for React applications
-- **Data Visualization** - Integrated D3.js and Recharts for powerful data visualization
-- **Form Management** - React Hook Form for efficient form handling
-- **Animation** - Framer Motion for smooth UI animations
-- **Testing** - Jest and React Testing Library setup
+### Core Functionality
+- ✅ **Natural Language RFP Creation** - Describe your procurement needs in plain English
+- ✅ **Vendor Management** - Maintain and organize vendor database
+- ✅ **Email Integration** - Send RFPs via email and receive vendor responses
+- ✅ **AI Response Parsing** - Automatically extract data from vendor emails
+- ✅ **Smart Comparison** - AI-powered proposal comparison and recommendations
+- ✅ **RFP Tracking** - Monitor status of all RFPs and proposals
+
+## 🏗️ Architecture
+
+### Frontend
+- **React 18** with Vite
+- **Tailwind CSS** for styling
+- **React Router** for navigation
+
+### Backend
+- **Node.js + Express** API server
+- **MongoDB** database
+- **OpenAI** for AI processing
+- **Email Service** for vendor communication
 
 ## 📋 Prerequisites
 
-- Node.js (v14.x or higher)
-- npm or yarn
+- Node.js 14+ and npm
+- MongoDB (local or Atlas)
+- OpenAI API key
+- Gmail account with app-specific password (for email)
 
 ## 🛠️ Installation
 
-1. Install dependencies:
+### Frontend Setup
+
+1. **Install dependencies:**
    ```bash
    npm install
-   # or
-   yarn install
    ```
-   
-2. Start the development server:
+
+2. **Update `.env`:**
+   ```env
+   VITE_API_URL=http://localhost:5000/api
+   ```
+
+3. **Start development server:**
    ```bash
-   npm start
-   # or
-   yarn start
+   npm run dev
+   ```
+
+### Backend Setup
+
+1. **Navigate to backend:**
+   ```bash
+   cd backend
+   npm install
+   ```
+
+2. **Create `.env` file:**
+   ```env
+   PORT=5000
+   NODE_ENV=development
+   MONGODB_URI=mongodb://localhost:27017/aerchain
+   OPENAI_API_KEY=sk-...
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASS=your-app-password
+   IMAP_USER=your-email@gmail.com
+   IMAP_PASSWORD=your-app-password
+   FRONTEND_URL=http://localhost:5173
+   ```
+
+3. **Start backend:**
+   ```bash
+   npm run dev
    ```
 
 ## 📁 Project Structure
 
 ```
-react_app/
-├── public/             # Static assets
-├── src/
-│   ├── components/     # Reusable UI components
-│   ├── pages/          # Page components
-│   ├── styles/         # Global styles and Tailwind configuration
-│   ├── App.jsx         # Main application component
-│   ├── Routes.jsx      # Application routes
-│   └── index.jsx       # Application entry point
-├── .env                # Environment variables
-├── index.html          # HTML template
-├── package.json        # Project dependencies and scripts
-├── tailwind.config.js  # Tailwind CSS configuration
-└── vite.config.js      # Vite configuration
+Aerchain/
+├── src/                          # React frontend
+│   ├── components/               # UI components
+│   ├── pages/                    # Page components
+│   ├── services/                 # API service layer
+│   └── styles/                   # Styling
+├── backend/                      # Node.js API server
+│   ├── src/
+│   │   ├── routes/              # API routes
+│   │   ├── controllers/         # Request handlers
+│   │   ├── models/              # Database schemas
+│   │   ├── services/            # Business logic
+│   │   └── config/              # Configuration
+│   └── .env                     # Backend config
+└── README.md
 ```
 
-## 🧩 Adding Routes
+## 🚀 Usage
 
-To add new routes to the application, update the `Routes.jsx` file:
+### Creating an RFP
+1. Go to **RFP Creation Workspace**
+2. Describe your needs in natural language
+3. System AI structures the RFP
+4. Select vendors and send
 
-```jsx
-import { useRoutes } from "react-router-dom";
-import HomePage from "pages/HomePage";
-import AboutPage from "pages/AboutPage";
+### Managing Vendors
+1. Go to **Vendor Management Console**
+2. Add/edit vendor information
+3. Assign categories and ratings
 
-const ProjectRoutes = () => {
-  let element = useRoutes([
-    { path: "/", element: <HomePage /> },
-    { path: "/about", element: <AboutPage /> },
-    // Add more routes as needed
-  ]);
+### Processing Proposals
+1. Vendors reply via email
+2. Go to **Email Processing Center**
+3. System auto-parses responses
+4. Review extracted data
 
-  return element;
-};
-```
+### Comparing Proposals
+1. Go to **RFP Status Tracking Hub**
+2. View proposals comparison
+3. Get AI recommendation
 
-## 🎨 Styling
+## 🤖 AI Features
 
-This project uses Tailwind CSS for styling. The configuration includes:
+- **Natural Language Processing**: Convert descriptions to structured RFPs
+- **Email Parsing**: Auto-extract proposal data from vendor emails
+- **Smart Comparison**: Score and recommend best vendor
+- **Risk Analysis**: Identify potential issues
 
-- Forms plugin for form styling
-- Typography plugin for text styling
-- Aspect ratio plugin for responsive elements
-- Container queries for component-specific responsive design
-- Fluid typography for responsive text
-- Animation utilities
+## 📊 API Endpoints
 
-## 📱 Responsive Design
+### RFP Management
+- `POST /api/rfps/create` - Create RFP
+- `GET /api/rfps` - List RFPs
+- `POST /api/rfps/:id/send` - Send to vendors
+- `GET /api/rfps/:rfpId/compare` - Compare proposals
 
-The app is built with responsive design using Tailwind CSS breakpoints.
+### Vendors
+- `GET /api/vendors` - List vendors
+- `POST /api/vendors` - Create vendor
 
+### Emails
+- `POST /api/emails/fetch` - Fetch responses
+- `GET /api/emails/inbound/all` - Get all emails
+
+See [Backend README](./backend/README.md) for complete API documentation.
+
+## 📧 Email Setup (Gmail)
+
+1. Enable 2FA: https://myaccount.google.com
+2. Generate app password: https://myaccount.google.com/apppasswords
+3. Use the 16-char password in backend `.env`
 
 ## 📦 Deployment
 
