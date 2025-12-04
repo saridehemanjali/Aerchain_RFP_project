@@ -1,0 +1,117 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "Aerchain RFP API",
+  "dateExport": "2025-12-04T17:30:00.000Z",
+  "version": "1.1",
+  "folders": [
+    {
+      "name": "Health Check",
+      "requests": []
+    },
+    {
+      "name": "Vendors",
+      "requests": []
+    },
+    {
+      "name": "RFPs",
+      "requests": []
+    },
+    {
+      "name": "Emails",
+      "requests": []
+    }
+  ],
+  "requests": [
+    {
+      "id": "1",
+      "name": "Health Check",
+      "method": "GET",
+      "url": "http://localhost:5000/api/health",
+      "body": {},
+      "headers": {},
+      "params": {}
+    },
+    {
+      "id": "2",
+      "name": "Get All Vendors",
+      "method": "GET",
+      "url": "http://localhost:5000/api/vendors",
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "params": {}
+    },
+    {
+      "id": "3",
+      "name": "Create Vendor",
+      "method": "POST",
+      "url": "http://localhost:5000/api/vendors",
+      "body": {
+        "mode": "json",
+        "json": {
+          "name": "TechCorp Solutions",
+          "email": "contact@techcorp.com",
+          "phone": "+1-555-0123",
+          "website": "https://techcorp.com",
+          "category": "Hardware",
+          "contactPerson": "John Smith",
+          "notes": "Reliable vendor with good support"
+        }
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "params": {}
+    },
+    {
+      "id": "4",
+      "name": "Get All RFPs",
+      "method": "GET",
+      "url": "http://localhost:5000/api/rfps",
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "params": {}
+    },
+    {
+      "id": "5",
+      "name": "Create RFP from Natural Language",
+      "method": "POST",
+      "url": "http://localhost:5000/api/rfps/create",
+      "body": {
+        "mode": "json",
+        "json": {
+          "naturalLanguageInput": "I need to procure 20 laptops with 16GB RAM, 500GB SSD for our office. Budget is $30,000 total. Need delivery within 30 days. Payment terms should be net 30, and we need at least 1 year warranty."
+        }
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "params": {}
+    },
+    {
+      "id": "6",
+      "name": "Get All Inbound Emails",
+      "method": "GET",
+      "url": "http://localhost:5000/api/emails/inbound/all",
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "params": {}
+    },
+    {
+      "id": "7",
+      "name": "Fetch New Emails",
+      "method": "POST",
+      "url": "http://localhost:5000/api/emails/fetch",
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "params": {}
+    }
+  ]
+}

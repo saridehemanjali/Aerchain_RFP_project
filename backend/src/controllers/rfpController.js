@@ -5,8 +5,13 @@ const Email = require('../models/Email');
 const aiService = require('../services/aiService');
 const emailService = require('../services/emailService');
 
+// Wrapper function to handle async errors
+const asyncHandler = (fn) => (req, res, next) => {
+  Promise.resolve(fn(req, res, next)).catch(next);
+};
+
 // Create RFP from natural language input
-exports.createRFPFromNaturalLanguage = async (req, res) => {
+exports.createRFPFromNaturalLanguage = asyncHandler(async (req, res) => {
   try {
     const { naturalLanguageInput, createdBy } = req.body;
 
@@ -44,7 +49,7 @@ exports.createRFPFromNaturalLanguage = async (req, res) => {
     console.error('Error creating RFP:', error);
     res.status(500).json({ error: error.message });
   }
-};
+});
 
 // Get all RFPs
 exports.getAllRFPs = async (req, res) => {

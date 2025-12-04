@@ -17,8 +17,10 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
-connectDB();
+// Connect to MongoDB (non-blocking, will retry on requests if failed)
+connectDB().catch(err => {
+  console.warn('Warning: MongoDB connection failed at startup. API will try to reconnect.');
+});
 
 // Routes
 const rfpRoutes = require('./routes/rfpRoutes');
